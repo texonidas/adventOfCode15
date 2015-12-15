@@ -2,11 +2,16 @@
 ## Preface ##
 I'm a mechatronic engineer, with experience in C, C++, C#, Matlab, and T-SQL.
 
-I decided to use Advent of Code this year to learn Python, a language I have no experience in. This repository contains my solutions and input files. Feel free to clone this repository and replace the dayX.txt files with your own inputs.
+I decided to use Advent of Code this year to learn Python, a language I have no experience in. This repository contains my solutions and input files. Feel free to clone this repository and replace the dayN.txt files with your own inputs.
 
-## Advent of Code 2015 solutions
-### Day 1
+## Advent of Code 2015 solutions ##
+### Day 1 ###
+#### Part a ####
+The first day was a relatively simple warm-up problem. Santa has a list of instructions to navigate the floors of an infinite apartment building. **(** means he needs to go up a floor, **)** means he needs to go down a floor.
 
+The first step towards solving this task getting the input into a Python script, easily achieved via the ''open('day1.txt', 'r')'' function. It was then as simple as iterating over each character in the text, and incrementing or decrementing a 'floor' variable depending on the character. using the 'print(floor)' function then shows the result in the console.
+
+#### Part b ####
 ### Day 2
 
 ### Day 3
