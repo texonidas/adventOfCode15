@@ -9,5 +9,6 @@ for char in text.read():
 	if char == ')':
 		floor -= 1
 	if floor == -1:
-		print (current)
+		break
 	current += 1
+print(current)
