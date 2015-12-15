@@ -5,6 +5,6 @@ floor = 0
 for char in text.read():
 	if char == '(':
 		floor += 1
-	if char == ')':
+	elif char == ')':
 		floor -= 1
 print (floor)

@@ -6,7 +6,7 @@ current = 1
 for char in text.read():
 	if char == '(':
 		floor += 1
-	if char == ')':
+	elif char == ')':
 		floor -= 1
 	if floor == -1:
 		break

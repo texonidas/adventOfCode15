@@ -6,11 +6,11 @@ coords = [(cur_x, cur_y)]
 for char in text.read():
 	if(char=='<'):
 		cur_x -= 1
-	if(char=='>'):
+	elif(char=='>'):
 		cur_x += 1
-	if(char=='v'):
+	elif(char=='v'):
 		cur_y -= 1
-	if(char=='^'):
+	elif(char=='^'):
 		cur_y += 1
 	coords.append((cur_x, cur_y))
 
