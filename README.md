@@ -45,7 +45,7 @@ To calculate the smallest perimeter, I constructed a second list containing the 
 #### Part One ####
 I originally over-engineered the solution to day three, which I will explain in more detail further down. In this problem, Santa is delivering presents to an infinite two-dimensional grid of houses according to cardinal directions radioed in by an elf at the North Pole, because context is important. He moves one house at a time, delivering a single present to each house he stops at. The goal is to find out how many houses receive at least one present.
 
-To begin this problem, I created `cur_x` and `cur_y` variables, intialised to 0. I then created a list, `coords`, to store the coordinates of each house Santa visits. Using a `for` loop, I iterated through each character, and incremented either `cur_x` or `cur_y` accordingly. After incrementing the position, I added the new coordinates to the `coords` list as a tuple using the `.append()` function.
+To begin this problem, I created `cur_x` and `cur_y` variables, intialised to 0. I then created a list, `coords`, to store the coordinates of each house Santa visits. Using a `for` loop, I iterated through each character, and incremented or decremented either `cur_x` or `cur_y` accordingly. After adjusting the position, I added the new coordinates to the `coords` list as a tuple using the `.append()` function.
 
 This is where my solutions diverged.
 
@@ -70,7 +70,7 @@ In the second part of this problem, Santa has built himself a Robo-Santa, becaus
 
 This problem again required only slight modification. I added another set of coordinates, `robo_x` and `robo_y`, to track the position of Better-Santa, and a counter to track the how many instructions had been given. To determine whose turn it was, I used an `if: else:` statement based on the modulo (remainder of a division) of the current instruction with 2, `count % 2`. If it was 0, it was Shit-Santa's turn, otherwise it was Super-Santa's.
 
-I then created a copy of the original loop inside Awesome-Santa's case, replacing `cur_x`, `cur_y` with `robo_x` and `robo_y` respectively. This included in the appending of coordinates to the list.
+I then created a copy of the original loop inside Awesome-Santa's case, replacing `cur_x`, `cur_y` with `robo_x` and `robo_y` respectively. This included in the appending of coordinates to `coords`.
 
 The end result was 260 more houses visited, which just goes to show how specifically awesome robots are.
 

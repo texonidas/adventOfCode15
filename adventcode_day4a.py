@@ -1,6 +1,6 @@
 import hashlib
 
-key = 'bgvyzdsv'
+key = open('day4.txt', 'r').read()
 check = 0
 flag = True
 
