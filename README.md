@@ -74,15 +74,40 @@ I then created a copy of the original loop inside Awesome-Santa's case, replacin
 
 The end result was 260 more houses visited, which just goes to show how specifically awesome robots are.
 
-### Day 4
+### Day 4: The 	Ideal Stocking Stuffer
 #### Part One ####
+Day four was a less challenging problem than the previous day's, requiring importing a single library. Santa has started mining AdventCoins, and he needs to find MD5 hashes that start with five zeroes in hexadecimal. The input to the hash is the given key with an integer appended to the end.
+
+To generate the hashes, I had to import `hashlib`, a standard library for Python that is used for, unsurprisingly, generating hashes. Unfortunately, the only way to find the lowest value that generates a hash with five leading zeroes is via brute force. To this end, I appended an integer to the given key (stored in day4.txt), and then hashed the resultant string, using `.update()`. I then converted the result to hexadecimal, and checked if the first five characters were zeroes.
 
 #### Part Two ####
+The second part of this challenge was a very small modifcation. The goal was to find the first integer that resulted in a hash starting with six zeroes. To achieve this I changed the 4 in the index to a 5, and added another 0 to the check string.
 
 ### Day 5
 #### Part One ####
+In day six, Santa has suffered from a mental slip, and assigned human traits to the strings on his list. He has defined nice strings as those that contains at least three vowels, contains at least one set of double letters, and does not include the strings ab, cd, pq, or xy.
+
+As the experienced amongst you may have realised, this required the use of regular expression, also known as regex. Python contains a standard library called `re` that provides regex functionality. I used [regexr](http://regexr.com/) to test my regular expressions. Three seperate expressions were required to check the conditions, one for each condition.
+
+The three regular expressions ended up as:
+
+	reg1 = re.compile(r"(.)\1+")
+	reg2 = re.compile(r"([aeiou])")
+	reg3 = re.compile(r"(ab|cd|pq|xy)+")
+
+The first expression checks for any duplicate character, `{.)`, and then matches the group again using `\1`. The second places the five vowels into square brackets, `[aeiou]`, which is the equivalent of `OR`. The third uses explicit ORs to match the disallowed strings.
+
+Each of the compiled regexs are then evaluated on a string by string basis, and a matching count is taken using `len()` and `.findall()`.
 
 #### Part Two ####
+The second part of this problem gave different conditions for naughty and nice, continuing Santa's rapid decline into madness. A nice string needs to contain a pair of any two letters that appears twice within the string, and contains a set of any three letters where the first and last letter match.
+
+The new regexs were:
+
+	reg1 = re.compile(r"(.)(.){1}(\1)")
+	reg2 = re.compile(r"(..)(.)*(\1)")
+
+The first expression matches any character, then matches any one character, indicated by `(.){1}`. The third matching group, `(\1)`, matches the first again. The second expression matches any two characters, and then matches zero or more of any character, shown by `(.)*`, before matching the pair again. The code then check that both of these condition matched at least once using the same method as before.
 
 ### Day 6
 #### Part One ####
